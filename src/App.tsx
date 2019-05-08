@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import omit from "lodash/omit";
 import Staff from "./Staff";
-import Tablature from "./Tablature";
+import Tabs from "./Tabs";
+import "./app.css";
 
 export default function App() {
   const [notes, setNotes] = useState({});
@@ -13,10 +14,13 @@ export default function App() {
   };
 
   return (
-    <>
+    <div className="App">
       <h1>Notes to Ukulele Tabs</h1>
+      <p className="App__hint">
+        Hint: Click on staff to place a note. Click on a tab to toggle the tab.
+      </p>
       <Staff notes={notes} onNoteClick={onNoteClick} />
-      <Tablature notes={notes} />
-    </>
+      <Tabs notes={notes} />
+    </div>
   );
 }

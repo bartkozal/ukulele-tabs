@@ -1,0 +1,23 @@
+.Tabs {
+  border-collapse: collapse;
+}
+
+.Tabs tr {
+  background: url("./pixel.png") repeat-x center;
+}
+
+.Tabs td {
+  width: 31px;
+  height: 15px;
+  text-align: center;
+  color: #888;
+}
+
+.Tabs td:nth-child(1) {
+  background-color: white;
+}
+
+.Tabs__signature {
+  background-color: white;
+  cursor: pointer;
+}

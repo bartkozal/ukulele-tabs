@@ -2,6 +2,43 @@
   border-collapse: collapse;
 }
 
+.Staff tr:nth-child(3),
+.Staff tr:nth-child(5),
+.Staff tr:nth-child(7),
+.Staff tr:nth-child(9),
+.Staff tr:nth-child(11) {
+  background: url("./pixel.png") repeat-x center;
+}
+
 .Staff td {
-  border: 1px solid black;
+  width: 30px;
+  height: 15px;
+  border: 1px solid #f6f6f6;
+  cursor: pointer;
+  text-align: center;
+  color: #888;
+}
+
+.Staff td:nth-child(1) {
+  background-color: white;
+}
+
+.Staff__note {
+  width: 18px;
+  height: 15px;
+  margin-left: 6px;
+  border-radius: 50%;
+  background-color: black;
+  position: relative;
+}
+
+.Staff__note::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -40px;
+  right: 0;
+  height: 50px;
+  width: 1px;
+  background-color: black;
 }

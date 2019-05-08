@@ -35,15 +35,23 @@ export default function Staff(props: Props) {
             <tr key={row}>
               {times(17, column => {
                 const note = getNoteInRow(row);
+                const [tone, value] = note.split("");
 
                 return column === 0 ? (
-                  <td key={column}>{note}</td>
+                  <td key={column}>
+                    {tone}
+                    <sub>{value}</sub>
+                  </td>
                 ) : (
                   <td
                     onClick={() => props.onNoteClick(column, note)}
                     key={column}
                   >
-                    {props.notes[column] === note ? "o" : "-"}
+                    {props.notes[column] === note ? (
+                      <div className="Staff__note" />
+                    ) : (
+                      ""
+                    )}
                   </td>
                 );
               })}

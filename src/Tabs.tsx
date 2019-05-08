@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import times from "lodash/times";
-import "./tablature.css";
+import "./tabs.css";
 
 interface Props {
   notes: any;
@@ -8,8 +8,8 @@ interface Props {
 
 const getTabInRow = (row: number) => ["A", "E", "C", "G"][row];
 
-const getTabSignature = (row: number, note: string) =>
-  [
+const getTabSignature = (row: number, note: string): string => {
+  const tab = [
     {
       A4: 0,
       B4: 2,
@@ -50,13 +50,26 @@ const getTabSignature = (row: number, note: string) =>
       F5: 11,
       G5: 12
     } //G
-  ][row][note] || "-";
+  ][row][note];
 
-export default function Tablature(props: Props) {
+  return tab === undefined ? "" : tab;
+};
+
+function Tab(props: { signature: string }) {
+  const [isVisibile, setVisibility] = useState(true);
+
+  return (
+    <div onClick={() => setVisibility(!isVisibile)}>
+      {isVisibile ? props.signature : ""}
+    </div>
+  );
+}
+
+export default function Tabs(props: Props) {
   return (
     <>
-      <p>Tablature</p>
-      <table className="Tablature">
+      <p>Tabs</p>
+      <table className="Tabs">
         <tbody>
           {times(4, row => (
             <tr key={row}>
@@ -67,7 +80,13 @@ export default function Tablature(props: Props) {
                   <td key={column}>{getTabInRow(row)}</td>
                 ) : (
                   <td key={column}>
-                    {note ? getTabSignature(row, note) : "-"}
+                    {note ? (
+                      <div className="Tabs__signature">
+                        <Tab signature={getTabSignature(row, note)} />
+                      </div>
+                    ) : (
+                      ""
+                    )}
                   </td>
                 );
               })}
