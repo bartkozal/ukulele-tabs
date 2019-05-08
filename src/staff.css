@@ -1,0 +1,7 @@
+.Staff {
+  border-collapse: collapse;
+}
+
+.Staff td {
+  border: 1px solid black;
+}

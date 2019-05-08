@@ -1,0 +1,7 @@
+.Tablature {
+  border-collapse: collapse;
+}
+
+.Tablature td {
+  border: 1px solid black;
+}
