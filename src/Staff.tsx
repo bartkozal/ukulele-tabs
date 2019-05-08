@@ -30,21 +30,26 @@ export default function Staff(props: Props) {
     <>
       <p>Staff</p>
       <table className="Staff">
-        {times(13, row => (
-          <tr>
-            {times(17, column => {
-              const noteSignature = getNoteInRow(row);
+        <tbody>
+          {times(13, row => (
+            <tr key={row}>
+              {times(17, column => {
+                const note = getNoteInRow(row);
 
-              return column === 0 ? (
-                <td>{noteSignature}</td>
-              ) : (
-                <td onClick={() => props.onNoteClick(column, noteSignature)}>
-                  {props.notes[column] === noteSignature ? 1 : 0}
-                </td>
-              );
-            })}
-          </tr>
-        ))}
+                return column === 0 ? (
+                  <td key={column}>{note}</td>
+                ) : (
+                  <td
+                    onClick={() => props.onNoteClick(column, note)}
+                    key={column}
+                  >
+                    {props.notes[column] === note ? "o" : "-"}
+                  </td>
+                );
+              })}
+            </tr>
+          ))}
+        </tbody>
       </table>
     </>
   );
