@@ -47,7 +47,7 @@ const getTabSignature = (row: number, note: string): string => {
       C5: 5,
       D5: 7,
       E5: 9,
-      F5: 11,
+      F5: 10,
       G5: 12
     } //G
   ][row][note];
