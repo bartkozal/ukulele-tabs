@@ -2,9 +2,13 @@ import React from "react";
 import times from "lodash/times";
 import "./tablature.css";
 
+interface Props {
+  notes: any;
+}
+
 const getTabInRow = (row: number) => ["A", "E", "C", "G"][row];
 
-export default function Tablature() {
+export default function Tablature(props: Props) {
   return (
     <>
       <p>Tablature</p>
