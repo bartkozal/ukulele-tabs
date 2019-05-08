@@ -1,8 +1,12 @@
 import React from "react";
-import "./App.css";
+import Staff from "./Staff";
+import Tablature from "./Tablature";
 
-function App() {
-  return <div className="App">Hello Bart</div>;
+export default function App() {
+  return (
+    <>
+      <Staff />
+      <Tablature />
+    </>
+  );
 }
-
-export default App;
